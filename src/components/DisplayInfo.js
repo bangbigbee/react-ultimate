@@ -1,5 +1,5 @@
 import React from "react";
-
+import './DisplayInfo.scss';
 class DisplayInfo extends React.Component {
    state = {
     isShowing: true,
@@ -12,7 +12,7 @@ class DisplayInfo extends React.Component {
     render() {
         const { user } = this.props;
         return (
-            <div>
+            <div className = "display-info-container">
                 <span onClick = {() => {this.handleShowHide()}}>{this.state.isShowing === true ? "Hide list users" : "Show list users"}</span>
                 {this.state.isShowing &&
                 user.map((userItem, index) => {
