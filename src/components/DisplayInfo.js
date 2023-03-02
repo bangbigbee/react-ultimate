@@ -1,37 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import './DisplayInfo.scss';
 //import logo from './../logo.svg'
 const DisplayInfo = (props) => {
-    // constructor(props) {
-    //     console.log('>>Call me Constructor: 1');
-    //     super(props);
-    //     this.state = {
-    //         isShowing: true,
-    //     }
-    // }
-    // componentDidMount() {
-    //     console.log('>>>Call me Component did mount');
-    //     setTimeout(() => {
-    //         document.title = 'BigBee Media';
-    //     }, 3000)
-    // }
-    // componentDidUpdate(prevProps, prevState, snapshot) {
-    //     console.log('>>>Call me Component did update', prevProps.listOfUser);
-    //     if (this.props.listOfUser !== prevProps.listOfUser) {
-    //         if (this.props.listOfUser.length === 5)
-    //             alert('You got 5 users');
-    //     }
-    // }
-    // handleShowHide = () => {
-    //     this.setState({
-    //         isShowing: !this.state.isShowing,
-    //     })
-    // }
+    const [isShowing, setShowHideState] = useState(true);
+
+    const handleShowHide = () => {
+        setShowHideState(!isShowing);
+    }
+
     const { listOfUser } = props;
     return (
         <div className="display-info-container">
-
-            {true &&
+            <div>
+                <span onClick={() => { handleShowHide() }}>{isShowing ? "Hide list of users" : "Show list of users"}</span>
+            </div>
+            {isShowing &&
                 <>
                     {listOfUser.map((userItem, index) => {
                         return (
