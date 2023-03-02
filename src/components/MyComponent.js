@@ -11,7 +11,6 @@ class MyComponent extends React.Component {
         ]
     }
     handleAddNewUser = (userObj) => {
-        console.log ('>>>Check user object:', userObj);
         this.setState({
             listUser: [userObj, ...this.state.listUser]
         })
@@ -19,7 +18,7 @@ class MyComponent extends React.Component {
 
     handleDeleteUser = (userId) => {
         let listUserClone = [...this.state.listUser];
-        listUserClone = listUserClone.filter(item => {return (item.id !== userId)}) // using filter to delete an array element
+        listUserClone = listUserClone.filter(item => { return (item.id !== userId) }) // using filter to delete an array element
         //another way to above statement: listUserClone = listUserClone.filter(item => item.id !== userId)
         this.setState({
             listUser: listUserClone,
@@ -29,13 +28,13 @@ class MyComponent extends React.Component {
     render() {
         return (
             <>
-            <div className="a">
-                <AddUserInfo handleAddNewUser = {this.handleAddNewUser}/> <br></br>
-                <DisplayInfo user={this.state.listUser} handleDeleteUser={this.handleDeleteUser} />
-            </div>
-            <div className="b">
+                <div className="a">
+                    <AddUserInfo handleAddNewUser={this.handleAddNewUser} /> <br></br>
+                    <DisplayInfo listOfUser={this.state.listUser} handleDeleteUser={this.handleDeleteUser} />
+                </div>
+                <div className="b">
 
-            </div>
+                </div>
             </>
         )
     }
