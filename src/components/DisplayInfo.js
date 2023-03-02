@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './DisplayInfo.scss';
 //import logo from './../logo.svg'
 const DisplayInfo = (props) => {
@@ -9,6 +9,13 @@ const DisplayInfo = (props) => {
     }
 
     const { listOfUser } = props;
+    useEffect(
+        () => {
+            if (listOfUser.length === 0)
+                alert('You deleted all users!')
+        }, [listOfUser]
+    )
+
     return (
         <div className="display-info-container">
             <div>
