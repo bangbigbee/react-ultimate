@@ -2,24 +2,21 @@
 import './App.scss';
 import React from 'react';
 import Header from './components/Header/Header';
-
-// class App extends React.Component {
-
-//   render() {
-//     return (
-//       <div className='app-container'>
-//         Hello World from BigBee Media!
-//         <MyComponent></MyComponent>
-//       </div>
-//     )
-//   }
-// }
+import { Link } from "react-router-dom";
 
 const App = () => {
 
   return (
     <div className="App">
       <Header/>
+      <div>
+      <button>
+        <Link to="/users">Go to user page</Link>
+      </button>
+      <button>
+      <Link to="/admins">Go to admin page</Link>
+      </button>
+        </div>
     </div>
   );
 }
